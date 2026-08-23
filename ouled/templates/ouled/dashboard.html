@@ -83,7 +83,7 @@
 
 			</div>
 
-			<!-- Student Demographics & Telemetry Table with Normative Row Hover Styles -->
+			<!-- Student Demographics & Telemetry Table with Pagination -->
 			<div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
 				<div class="p-5 border-b border-slate-100 font-semibold text-slate-800 text-sm">Comprehensive Student Demographics & VLE Telemetry</div>
 				<div class="overflow-x-auto">
@@ -116,13 +116,33 @@
 										{{ student.final_result }}
 									</span>
 								</td>
-								<td class="p-4 text-right">
-									<a href="{% url 'query_agent' student.student_id %}" class="inline-block bg-slate-900 text-white hover:bg-slate-800 font-medium text-xs px-3.5 py-1.5 rounded transition shadow-sm">Run AI Agent</a>
-								</td>
+                                <td class="p-4 text-right">
+                                    <a href="{% url 'query_agent' student.student_id %}" class="inline-block bg-slate-900 text-white hover:bg-slate-800 font-medium text-xs px-3.5 py-1.5 rounded transition shadow-sm">Run AI Agent</a>
+                                </td>
 							</tr>
 							{% endfor %}
 						</tbody>
 					</table>
+				</div>
+
+				<!-- Pagination Footer Controls -->
+				<div class="px-6 py-4 bg-slate-50 border-t border-slate-200 flex items-center justify-between">
+					<div class="text-xs text-slate-500">
+						Page <span class="font-semibold text-slate-700">{{ students.number }}</span> of <span class="font-semibold text-slate-700">{{ students.paginator.num_pages }}</span>
+					</div>
+					<div class="flex space-x-2">
+						{% if students.has_previous %}
+							<a href="?page={{ students.previous_page_number }}" class="px-3 py-1.5 text-xs font-medium bg-white border border-slate-300 rounded-md text-slate-700 hover:bg-slate-100 transition shadow-sm">Previous</a>
+						{% else %}
+							<span class="px-3 py-1.5 text-xs font-medium bg-slate-100 border border-slate-200 rounded-md text-slate-400 cursor-not-allowed">Previous</span>
+						{% endif %}
+
+						{% if students.has_next %}
+							<a href="?page={{ students.next_page_number }}" class="px-3 py-1.5 text-xs font-medium bg-white border border-slate-300 rounded-md text-slate-700 hover:bg-slate-100 transition shadow-sm">Next</a>
+						{% else %}
+							<span class="px-3 py-1.5 text-xs font-medium bg-slate-100 border border-slate-200 rounded-md text-slate-400 cursor-not-allowed">Next</span>
+						{% endif %}
+					</div>
 				</div>
 			</div>
 
@@ -132,10 +152,8 @@
 	<script>
 		const rawChartData = JSON.parse('{{ chart_data_json|safe }}');
 
-		// 1. First chart rewritten as a Polar Area Chart
+		// 1. PCA Polar Area Chart Setup
 		const pcaCtx = document.getElementById('pcaChart').getContext('2d');
-
-		// Aggregate first 5-6 items or values for the polar segments
 		const segmentLabels = rawChartData.slice(0, 5).map((_, index) => `Metric Item ${index + 1}`);
 		const segmentValues = rawChartData.slice(0, 5).map(item => Math.abs(item.y) + 1);
 
