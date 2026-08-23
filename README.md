@@ -1,6 +1,6 @@
 <div align="center"> 
 
-# EquitableEdu AI: Autonomous Student Insight & Adaptive Learning Platform
+# EquitableEdu AI: Autonomous Student Analysis & Adaptive Learning Platform
 
 <p>
   <img src="https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white" /> 
@@ -48,6 +48,7 @@ The following datasets have been selected as the primary sources for training, v
 --- 
 
 ## Problem Statements Addressed 
+
 ### Problem Statement Set – 2 (AI for Equitable Education Access) 
 
 Focuses on education, language access, and personalized learning. It addresses the systemic challenge where many students lack access to quality tutoring, doubt resolution, or personalized feedback because no system connects a student's specific confusion to the right explanation, at the right level, in the right language. Teachers in under-resourced schools are similarly stretched, often without a way to identify which students are falling behind until it is too late. 
