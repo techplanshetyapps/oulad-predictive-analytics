@@ -1,0 +1,15 @@
+# Django static files (let Render/Whitenoise collect them automatically)
+static/admin/
+staticfiles/
+
+# Python / Django
+__pycache__/
+*.pyc
+db.sqlite3
+media/
+
+# Virtual Environments
+venv/
+env/
+.venv/
+django4/
