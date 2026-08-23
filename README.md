@@ -1,6 +1,6 @@
 <div align="center"> 
 
-# EquitableEdu AI: Autonomous Student Insight & Adaptive Learning Platform
+# EquitableEdu AI: Autonomous Student Analysis & Adaptive Learning Platform
 
 <p>
   <img src="https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white" /> 
