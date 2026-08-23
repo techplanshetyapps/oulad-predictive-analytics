@@ -1,0 +1,7 @@
+return {
+ ["filename"]="",
+ ["lastluaerror"]="?",
+ ["lasttexerror"]="! I can't find file `vx'.",
+ ["linenumber"]=0,
+ ["offset"]=10,
+}
